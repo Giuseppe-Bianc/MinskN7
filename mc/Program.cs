@@ -25,10 +25,9 @@ namespace Minsk {
                 var syntaxTree = SyntaxTree.Parse(line);
 
                 if (showTree) {
-                    var color = Console.ForegroundColor;
                     Console.ForegroundColor = ConsoleColor.DarkGray;
                     PrettyPrint(syntaxTree.Root);
-                    Console.ForegroundColor = color;
+                    Console.ResetColor();
                 }
 
                 if (!syntaxTree.Diagnostics.Any()) {
@@ -36,7 +35,6 @@ namespace Minsk {
                     var result = e.Evaluate();
                     Console.WriteLine(result);
                 } else {
-                    var color = Console.ForegroundColor;
                     Console.ForegroundColor = ConsoleColor.DarkRed;
 
                     Span<string> diagnostics = CollectionsMarshal.AsSpan(syntaxTree.Diagnostics.ToList());
@@ -46,7 +44,7 @@ namespace Minsk {
                         Console.WriteLine(item);
                     }
 
-                    Console.ForegroundColor = color;
+                    Console.ResetColor();
                 }
             }
         }
