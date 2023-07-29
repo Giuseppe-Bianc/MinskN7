@@ -1,5 +1,5 @@
 namespace Minsk.CodeAnalysis {
-    public class Evaluator {
+    public sealed class Evaluator {
         private readonly ExpressionSyntax _root;
 
         public Evaluator(ExpressionSyntax root) {
@@ -12,8 +12,8 @@ namespace Minsk.CodeAnalysis {
 
         private int EvaluateExpression(ExpressionSyntax node) {
             switch (node) {
-                case NumberExpressionSyntax n:
-                    return (int)n.NumberToken.Value;
+                case LiteralExpressionSyntax n:
+                    return (int)n.LiteralToken.Value;
                 case BinaryExpressionSyntax b: {
                         var left = EvaluateExpression(b.Left);
                         var right = EvaluateExpression(b.Right);

@@ -1,5 +1,5 @@
 namespace Minsk.CodeAnalysis {
-    public class SyntaxTree {
+    public sealed class SyntaxTree {
         public SyntaxTree(IEnumerable<string> diagnostics, ExpressionSyntax root, SyntaxToken endOfFileToken) {
             Diagnostics = diagnostics.ToArray();
             Root = root;

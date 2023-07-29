@@ -1,5 +1,5 @@
 namespace Minsk.CodeAnalysis {
-    public class Parser {
+    internal sealed class Parser {
         private readonly SyntaxToken[] _tokens;
 
         private readonly List<string> _diagnostics = new List<string>();
@@ -43,7 +43,7 @@ namespace Minsk.CodeAnalysis {
             return current;
         }
 
-        private SyntaxToken Match(SyntaxKind kind) {
+        private SyntaxToken MatchToken(SyntaxKind kind) {
             if (Current.Kind == kind)
                 return NextToken();
 
@@ -51,14 +51,14 @@ namespace Minsk.CodeAnalysis {
             return new SyntaxToken(kind, Current.Position, null, null);
         }
 
-        private ExpressionSyntax ParseExpression() {
-            return ParseTerm();
+        public SyntaxTree Parse() {
+            var expresion = ParseExpression();
+            var endOfFileToken = MatchToken(SyntaxKind.EndOfFileToken);
+            return new SyntaxTree(_diagnostics, expresion, endOfFileToken);
         }
 
-        public SyntaxTree Parse() {
-            var expresion = ParseTerm();
-            var endOfFileToken = Match(SyntaxKind.EndOfFileToken);
-            return new SyntaxTree(_diagnostics, expresion, endOfFileToken);
+        private ExpressionSyntax ParseExpression() {
+            return ParseTerm();
         }
 
         private ExpressionSyntax ParseTerm() {
@@ -91,12 +91,12 @@ namespace Minsk.CodeAnalysis {
             if (Current.Kind == SyntaxKind.OpenParenthesisToken) {
                 var left = NextToken();
                 var expression = ParseExpression();
-                var right = Match(SyntaxKind.CloseParenthesisToken);
+                var right = MatchToken(SyntaxKind.CloseParenthesisToken);
                 return new ParenthesizedExpressionSyntax(left, expression, right);
             }
 
-            var numberToken = Match(SyntaxKind.NumberToken);
-            return new NumberExpressionSyntax(numberToken);
+            var numberToken = MatchToken(SyntaxKind.NumberToken);
+            return new LiteralExpressionSyntax(numberToken);
         }
     }
 }

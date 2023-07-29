@@ -1,5 +1,5 @@
 namespace Minsk.CodeAnalysis {
-    public class Lexer {
+    internal sealed class Lexer {
         private readonly string _text;
         private readonly int _textLenght;
         private int _position;
