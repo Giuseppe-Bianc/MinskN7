@@ -17,9 +17,11 @@ variables:
 steps:
 - task: UseDotNet@2
   inputs:
-    packageType: 'sdk'
+    packageType: 'runtime'
     version: '7.0.9'
-    vsVersion: '17.0.31903.59'
+    vsVersion: '17.4.33103.184'
+    includePreviewVersions: true
+    performMultiLevelLookup: true
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
