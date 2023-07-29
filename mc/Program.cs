@@ -51,7 +51,7 @@ namespace Minsk {
         static void PrettyPrint(SyntaxNode node, string indent = "", bool isLast = true) {
             var marker = isLast ? "└──" : "├──";
 
-            Console.WriteLine($"{indent}{marker}{node.Kind}");
+            Console.Write($"{indent}{marker}{node.Kind}");
 
             if (node is SyntaxToken { Value: not null } t) {
                 Console.Write($" {t.Value}");

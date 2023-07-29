@@ -1,5 +1,5 @@
 namespace Minsk.CodeAnalysis {
-    class Parser {
+    public class Parser {
         private readonly SyntaxToken[] _tokens;
 
         private readonly List<string> _diagnostics = new List<string>();
