@@ -36,7 +36,6 @@ namespace Minsk {
                     Console.WriteLine(result);
                 } else {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-
                     Span<string> diagnostics = CollectionsMarshal.AsSpan(syntaxTree.Diagnostics.ToList());
                     ref var searcSpace = ref MemoryMarshal.GetReference(diagnostics);
                     for (int i = 0; i < diagnostics.Length; i++) {
@@ -52,9 +51,7 @@ namespace Minsk {
         static void PrettyPrint(SyntaxNode node, string indent = "", bool isLast = true) {
             var marker = isLast ? "└──" : "├──";
 
-            Console.Write(indent);
-            Console.Write(marker);
-            Console.Write(node.Kind);
+            Console.WriteLine($"{indent}{marker}{node.Kind}");
 
             if (node is SyntaxToken { Value: not null } t) {
                 Console.Write($" {t.Value}");
