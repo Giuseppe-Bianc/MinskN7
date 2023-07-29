@@ -47,6 +47,6 @@ State the code of conduct for the project and link to a separate `CODE_OF_CONDUC
 Specify the project's license and link to the `LICENSE` file for more details.
 
 ## Contact
-If you need further assistance or have any questions related to contributing, feel free to contact us at [your-email@example.com].
+If you need further assistance or have any questions related to contributing, feel free to contact us at [gbianconi6@gmail.com].
 
 We appreciate your interest in contributing to MinskN7!
