@@ -4,7 +4,7 @@
 
 We take the security of our project seriously. If you discover any security-related issues or vulnerabilities, we appreciate your help in disclosing it to us in a responsible manner.
 
-To report a security issue, please email us at security@example.com. Please refrain from creating a public GitHub issue for security-related concerns, so we can address the issue before it becomes public.
+To report a security issue, please email us at gbianconi6@gmail.com. Please refrain from creating a public GitHub issue for security-related concerns, so we can address the issue before it becomes public.
 
 When reporting security issues, please include the following details in your email:
 
