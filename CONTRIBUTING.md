@@ -1,6 +1,6 @@
-# Contributing to [MinskN7]
+# Contributing to MinskN7
 
-Thank you for considering contributing to the [Project Name]! We appreciate your time and effort in making this project better.
+Thank you for considering contributing to the MinskN7! We appreciate your time and effort in making this project better.
 
 ## Table of Contents
 1. [Code of Conduct](#code-of-conduct)
@@ -49,4 +49,4 @@ Specify the project's license and link to the `LICENSE` file for more details.
 ## Contact
 If you need further assistance or have any questions related to contributing, feel free to contact us at [your-email@example.com].
 
-We appreciate your interest in contributing to [Project Name]!
+We appreciate your interest in contributing to MinskN7!
