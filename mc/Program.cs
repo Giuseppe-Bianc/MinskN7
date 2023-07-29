@@ -59,8 +59,7 @@ namespace Minsk {
             Console.Write(node.Kind);
 
             if (node is SyntaxToken { Value: not null } t) {
-                Console.Write(" ");
-                Console.Write(t.Value);
+                Console.Write($" {t.Value}");
             }
 
             Console.WriteLine();
