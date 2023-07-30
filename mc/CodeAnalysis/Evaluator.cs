@@ -14,6 +14,14 @@ namespace Minsk.CodeAnalysis {
             switch (node) {
                 case LiteralExpressionSyntax n:
                     return (int)n.LiteralToken.Value;
+                case UnaryExpressionSyntax u:
+                    var operand = EvaluateExpression(u.Operand);
+
+                    return u.OperatorToken.Kind switch {
+                        SyntaxKind.PlusToken => operand,
+                        SyntaxKind.MinusToken => -operand,
+                        _ => throw new Exception($"Unexpected unary operator {u.OperatorToken.Kind}"),
+                    };
                 case BinaryExpressionSyntax b: {
                         var left = EvaluateExpression(b.Left);
                         var right = EvaluateExpression(b.Right);
