@@ -1,4 +1,5 @@
 using Minsk.CodeAnalysis;
+using Minsk.CodeAnalysis.Syntax;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 

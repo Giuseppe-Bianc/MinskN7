@@ -1,4 +1,4 @@
-namespace Minsk.CodeAnalysis {
+namespace Minsk.CodeAnalysis.Syntax {
     internal sealed class Lexer {
         private readonly string _text;
         private readonly int _textLenght;

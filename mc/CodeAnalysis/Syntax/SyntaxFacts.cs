@@ -1,4 +1,4 @@
-namespace Minsk.CodeAnalysis {
+namespace Minsk.CodeAnalysis.Syntax {
     internal static class SyntaxFacts {
         public static int GetUnaryOperatorPrecedence(this SyntaxKind kind) {
             switch (kind) {

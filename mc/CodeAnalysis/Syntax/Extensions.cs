@@ -1,4 +1,4 @@
-namespace Minsk.CodeAnalysis {
+namespace Minsk.CodeAnalysis.Syntax {
     public static class Extensions {
         public static string ASCIIUnicode(this char c) {
             int asciiValue = c;
