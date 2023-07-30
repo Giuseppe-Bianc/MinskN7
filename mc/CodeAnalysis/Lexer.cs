@@ -20,11 +20,7 @@ namespace Minsk.CodeAnalysis {
             _position++;
         }
 
-        public SyntaxToken NextToken() {
-            // <numbers>
-            // + - * / ( )
-            // <whitespace>
-
+        public SyntaxToken Lex() {
             if (_position >= _textLenght)
                 return new SyntaxToken(SyntaxKind.EndOfFileToken, _position, "\0", null);
 
