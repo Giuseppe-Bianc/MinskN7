@@ -13,9 +13,9 @@ namespace Minsk.CodeAnalysis.Syntax {
         CloseParenthesisToken,
 
         // Expressions
-        NumberExpression,
+        LiteralExpression,
+        UnaryExpression,
         BinaryExpression,
         ParenthesizedExpression,
-        UnaryExpression
     }
 }

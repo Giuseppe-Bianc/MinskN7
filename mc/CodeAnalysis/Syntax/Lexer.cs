@@ -64,7 +64,7 @@ namespace Minsk.CodeAnalysis.Syntax {
                     return new SyntaxToken(SyntaxKind.CloseParenthesisToken, _position++, ")", null);
             }
 
-            _diagnostics.Add($"ERROR: bad character input: '{Current.ASCIIUnicode()}'");
+            _diagnostics.Add($"ERROR: bad character input: {Current.ASCIIUnicode()}");
             return new SyntaxToken(SyntaxKind.BadToken, _position++, _text.Substring(_position - 1, 1), null);
         }
     }

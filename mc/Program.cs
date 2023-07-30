@@ -1,4 +1,5 @@
 using Minsk.CodeAnalysis;
+using Minsk.CodeAnalysis.Binding;
 using Minsk.CodeAnalysis.Syntax;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -24,6 +25,11 @@ namespace Minsk {
                 }
 
                 var syntaxTree = SyntaxTree.Parse(line);
+                var binder = new Binder();
+                var boundExpression = binder.BindExpression(syntaxTree.Root);
+
+                var diagnostics = syntaxTree.Diagnostics.Concat(binder.Diagnostics).ToArray();
+
 
                 if (showTree) {
                     Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -31,14 +37,13 @@ namespace Minsk {
                     Console.ResetColor();
                 }
 
-                if (!syntaxTree.Diagnostics.Any()) {
-                    var e = new Evaluator(syntaxTree.Root);
+                if (!diagnostics.Any()) {
+                    var e = new Evaluator(boundExpression);
                     var result = e.Evaluate();
                     Console.WriteLine(result);
                 } else {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Span<string> diagnostics = CollectionsMarshal.AsSpan(syntaxTree.Diagnostics.ToList());
-                    ref var searcSpace = ref MemoryMarshal.GetReference(diagnostics);
+                    ref var searcSpace = ref MemoryMarshal.GetArrayDataReference(diagnostics);
                     for (int i = 0; i < diagnostics.Length; i++) {
                         var item = Unsafe.Add(ref searcSpace, i);
                         Console.WriteLine(item);
@@ -70,6 +75,5 @@ namespace Minsk {
                 PrettyPrint(item, indent, item == lastChild);
             }
         }
-
     }
 }

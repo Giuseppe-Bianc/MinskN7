@@ -6,12 +6,13 @@ namespace Minsk.CodeAnalysis.Syntax {
         }
 
         public override SyntaxKind Kind => SyntaxKind.UnaryExpression;
-        public SyntaxToken OperatorToken { get; }
-        public ExpressionSyntax Operand { get; }
+        public SyntaxToken OperatorToken { get; init; }
+        public ExpressionSyntax Operand { get; init; }
 
         public override IEnumerable<SyntaxNode> GetChildren() {
             yield return OperatorToken;
             yield return Operand;
         }
     }
+
 }

@@ -4,7 +4,7 @@ namespace Minsk.CodeAnalysis.Syntax {
             LiteralToken = literalToken;
         }
 
-        public override SyntaxKind Kind => SyntaxKind.NumberExpression;
+        public override SyntaxKind Kind => SyntaxKind.LiteralExpression;
         public SyntaxToken LiteralToken { get; }
 
         public override IEnumerable<SyntaxNode> GetChildren() {
